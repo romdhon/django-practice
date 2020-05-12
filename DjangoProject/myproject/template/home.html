@@ -1,0 +1,40 @@
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static "css/style.css"%}">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="home">Hello world</h1>
+    <h2>Burhan Pro so much</h2>
+    <input type="email">
+    <img src="{% static "images/django.jpg" %}" alt="">
+
+    {% if insert %}
+        <h2>Here is the the data</h2>
+        <table border="1">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Weight</th>
+                <th>Height</th>
+            </thead>
+            {% for data in insert %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.gender }}</td>
+                <td>{{ data.weight }}</td>
+                <td>{{ data.height }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else%}
+        <h2>Data do not exist</h2>
+    {% endif %}
+        
+</body>
+</html>
